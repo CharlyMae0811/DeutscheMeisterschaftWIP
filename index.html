@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deutsche Meisterschaft Mannschaftsturnier 2026 – Koblenz</title>
+  <meta name="description" content="One-page Website für das Deutsche Meisterschaft Mannschaftsturnier 2026 in Koblenz." />
+  <style>
+    :root {
+      --bg: #07182f;
+      --bg-soft: #0c2345;
+      --panel: rgba(255,255,255,0.08);
+      --panel-strong: rgba(255,255,255,0.12);
+      --line: rgba(255,255,255,0.14);
+      --text: #f6f9ff;
+      --muted: #c7d3e7;
+      --accent: #90bbff;
+      --shadow: 0 16px 38px rgba(0,0,0,0.2);
+      --radius: 20px;
+      --max: 1320px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(144,187,255,0.14), transparent 28%),
+        linear-gradient(180deg, #091a33 0%, #061120 100%);
+      line-height: 1.45;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 24px), var(--max));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 14px 0 18px;
+    }
+
+    .hero-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      padding: 18px;
+    }
+
+    .topline {
+      display: grid;
+      grid-template-columns: 170px 1fr 170px;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .host-logo-link,
+    .sponsor-strip a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.97);
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: transform .2s ease, box-shadow .2s ease;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.14);
+    }
+
+    .host-logo-link:hover,
+    .sponsor-strip a:hover,
+    .gallery-card:hover,
+    .map-link:hover,
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.18);
+    }
+
+    .host-logo-link {
+      min-height: 94px;
+      padding: 10px;
+    }
+
+    .host-logo-link img {
+      max-height: 72px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .host-logo-link.ctg img {
+      max-height: 92px;
+    }
+
+    .title-wrap {
+      text-align: center;
+      min-width: 0;
+    }
+
+    .eyebrow {
+      margin: 0 0 6px;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.7rem, 3.9vw, 3.4rem);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      margin: 10px auto 0;
+      max-width: 850px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .overview {
+      display: grid;
+      grid-template-columns: 180px 1fr 180px;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .sponsor-strip {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sponsor-strip a {
+      min-height: 84px;
+      padding: 10px;
+    }
+
+    .sponsor-strip img {
+      width: 100%;
+      height: 54px;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .center-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 14px;
+    }
+
+    .panel {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 16px;
+    }
+
+    .intro p,
+    .travel p,
+    .travel li,
+    .small,
+    .team-card li {
+      color: var(--muted);
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .fact {
+      border-radius: 16px;
+      padding: 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .fact strong {
+      display: block;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.76rem;
+      margin-bottom: 5px;
+    }
+
+    .fact span {
+      display: block;
+      font-size: 0.96rem;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .team-card {
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.11);
+    }
+
+    .team-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .team-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(144,187,255,0.16);
+      border: 1px solid rgba(255,255,255,0.1);
+      font-size: 1.35rem;
+    }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .schedule-item {
+      padding: 12px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .schedule-item strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--text);
+    }
+
+    .schedule-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .travel-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 0.95fr;
+      gap: 14px;
+    }
+
+    .map-link,
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-weight: 700;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .download-btn {
+      background: #f4f8ff;
+      color: #082041;
+    }
+
+    .travel ul {
+      padding-left: 18px;
+      margin: 10px 0 0;
+    }
+
+    .gallery-wrap {
+      margin-top: 16px;
+    }
+
+    .gallery-title {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+    }
+
+    .gallery-card {
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .credit {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: right;
+    }
+
+    @media (max-width: 1180px) {
+      .overview {
+        grid-template-columns: 150px 1fr 150px;
+      }
+      .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .travel-grid { grid-template-columns: 1fr 1fr; }
+      .travel-grid .panel:last-child { grid-column: span 2; }
+      .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    @media (max-width: 860px) {
+      .topline,
+      .overview,
+      .info-row,
+      .team-grid,
+      .travel-grid {
+        grid-template-columns: 1fr;
+      }
+      .sponsor-strip {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .travel-grid .panel:last-child { grid-column: auto; }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 620px) {
+      .container { width: min(calc(100% - 16px), var(--max)); }
+      .hero-card { padding: 14px; border-radius: 22px; }
+      .host-logo-link { min-height: 82px; }
+      .sponsor-strip { grid-template-columns: repeat(2, 1fr); }
+      .facts,
+      .schedule-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .gallery-card img { height: 120px; }
+      h1 { font-size: clamp(1.5rem, 8vw, 2.4rem); }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div class="topline">
+          <a class="host-logo-link" href="https://www.fechten.org/" target="_blank" rel="noopener noreferrer" aria-label="Deutscher Fechter-Bund">
+            <img src="logo-dfb.svg" alt="Logo Deutscher Fechter-Bund" />
+          </a>
+
+          <div class="title-wrap">
+            <p class="eyebrow">Deutsche Meisterschaft Mannschaftsturnier · 26.06.2026</p>
+            <h1>Senioren Team-Wettbewerb in Koblenz</h1>
+            <p class="subtitle">
+              Ein kompakter Überblick zum Deutschen Meisterschaft Mannschaftsturnier in Koblenz mit allen wichtigen Infos zu Damen- und Herren-Teams, Disziplinen, Anreise, Ausschreibung und Sponsoren.
+            </p>
+          </div>
+
+          <a class="host-logo-link ctg" href="https://www.ctg-koblenz.de/sportangebote/kampfsport/fechten/" target="_blank" rel="noopener noreferrer" aria-label="Coblenzer Turngesellschaft 1880 e.V.">
+            <img src="cropped-Logo.png" alt="Logo Coblenzer Turngesellschaft 1880 e.V." />
+          </a>
+        </div>
+
+        <div class="overview">
+          <div class="sponsor-strip">
+            <a href="https://www.lotto.de/" target="_blank" rel="noopener noreferrer"><img src="lotto.jpg" alt="Logo Lotto Rheinland-Pfalz" /></a>
+            <a href="https://www.sparkasse.de/" target="_blank" rel="noopener noreferrer"><img src="sparkasse.png" alt="Logo Sparkasse" /></a>
+          </div>
+
+          <div class="center-grid">
+            <div class="panel intro">
+              <p style="margin:0;">
+                Das Turnier wird gemeinsam vom Deutschen Fechter-Bund und dem Koblenzer Verein ausgerichtet. Ausgetragen werden ausschließlich Mannschaftswettbewerbe im Seniorenbereich für Damen und Herren in Florett, Degen und Säbel.
+              </p>
+
+              <div class="facts">
+                <div class="fact">
+                  <strong>Ort</strong>
+                  <span>Jupp-Gauchel-Straße 10<br />56075 Koblenz</span>
+                </div>
+                <div class="fact">
+                  <strong>Datum</strong>
+                  <span>Freitag, 26.06.2026</span>
+                </div>
+                <div class="fact">
+                  <strong>Format</strong>
+                  <span>Senioren · Team</span>
+                </div>
+                <div class="fact">
+                  <strong>Waffen</strong>
+                  <span>Florett · Degen · Säbel</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="team-grid">
+              <div class="team-card">
+                <div class="team-head">
+                  <div class="team-icon">♀</div>
+                  <div>
+                    <strong style="font-size:1.05rem;">Damen</strong>
+                    <div class="small">Seniorinnen · Mannschaft</div>
+                  </div>
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <strong>Florett</strong>
+                    <span>26.06.2026<br />09:00 Uhr</span>
+                  </div>
+                  <div class="schedule-item">
+                    <strong>Degen</strong>
+                    <span>26.06.2026<br />11:00 Uhr</span>
+                  </div>
+                  <div class="schedule-item">
+                    <strong>Säbel</strong>
+                    <span>26.06.2026<br />13:00 Uhr</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="team-card">
+                <div class="team-head">
+                  <div class="team-icon">♂</div>
+                  <div>
+                    <strong style="font-size:1.05rem;">Herren</strong>
+                    <div class="small">Senioren · Mannschaft</div>
+                  </div>
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <strong>Florett</strong>
+                    <span>26.06.2026<br />10:00 Uhr</span>
+                  </div>
+                  <div class="schedule-item">
+                    <strong>Degen</strong>
+                    <span>26.06.2026<br />12:00 Uhr</span>
+                  </div>
+                  <div class="schedule-item">
+                    <strong>Säbel</strong>
+                    <span>26.06.2026<br />14:00 Uhr</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="travel-grid">
+              <div class="panel travel">
+                <strong>Wettkampfstätte</strong>
+                <p style="margin:8px 0 0;">Jupp-Gauchel-Straße 10, 56075 Koblenz</p>
+                <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Jupp-Gauchel-Stra%C3%9Fe+10%2C+56075+Koblenz" target="_blank" rel="noopener noreferrer">🗺️ Google Maps</a>
+              </div>
+
+              <div class="panel travel">
+                <strong>Anreise mit Bus</strong>
+                <ul>
+                  <li>Koblenz EPG ARENA/Stadion – Linien 3, 13, 466</li>
+                  <li>Koblenz Epg Arena/B 9 Bussteig B – Linie 670</li>
+                </ul>
+              </div>
+
+              <div class="panel travel">
+                <strong>Ausschreibung</strong>
+                <p style="margin:8px 0 0;">Hier kann die offizielle Ausschreibung als PDF eingebunden werden.</p>
+                <a class="download-btn" href="#">PDF herunterladen</a>
+                <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=EPG+Arena+Parkplatz+Koblenz" target="_blank" rel="noopener noreferrer">🅿️ Parkplatz</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="sponsor-strip">
+            <a href="https://sebamed.com/en/info/" target="_blank" rel="noopener noreferrer"><img src="sebamed.png" alt="Logo Sebamed" /></a>
+            <a href="https://fechtklingen.de/?srsltid=AfmBOoqB4DIWc3NGaSao5z3sqwPX9OG5Vv2ohKFRjF_To7LH5a7HXEjX" target="_blank" rel="noopener noreferrer"><img src="fechtklingen.png" alt="Logo Fechtklingen.de" /></a>
+            <a href="https://www.bundeswehr.de/" target="_blank" rel="noopener noreferrer"><img src="bundesweht.png" alt="Logo Bundeswehr" /></a>
+          </div>
+        </div>
+
+        <div class="gallery-wrap">
+          <h2 class="gallery-title">Impressionen</h2>
+          <div class="gallery-grid">
+            <div class="gallery-card"><img src="FISU_2025_Tag3-0E3A2840.jpg" alt="Fechter im Wettkampf" loading="lazy" /></div>
+            <div class="gallery-card"><img src="FISU_2025_Tag3-0E3A3730.jpg" alt="Fechtduell" loading="lazy" /></div>
+            <div class="gallery-card"><img src="FISU_2025_Tag3-0E3A4044.jpg" alt="Athlet im Turnier" loading="lazy" /></div>
+            <div class="gallery-card"><img src="FISU_2025_Tag3-0E3A4148.jpg" alt="Jubel eines Fechters" loading="lazy" /></div>
+            <div class="gallery-card"><img src="FISU_2025_Tag3-JR6A1760.jpg" alt="Fechtszene auf der Planche" loading="lazy" /></div>
+            <div class="gallery-card"><img src="Marburg_2022-0007.jpg" alt="Finale Wettkampfszene" loading="lazy" /></div>
+          </div>
+          <div class="credit">Bildnachweis: Jan von Uxkull</div>
+        </div>
+      </div>
+    </div>
+  </header>
+</body>
+</html>
